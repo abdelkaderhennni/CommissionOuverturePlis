@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommissionOuverturePlis", "CommissionOuverturePlis\CommissionOuverturePlis\CommissionOuverturePlis.csproj", "{EB13503C-A26E-45DA-84C4-83AD7A2286E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommissionOuverturePlis.Client", "CommissionOuverturePlis\CommissionOuverturePlis.Client\CommissionOuverturePlis.Client.csproj", "{906593A7-EA6F-4578-A81B-F984881E68C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB13503C-A26E-45DA-84C4-83AD7A2286E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB13503C-A26E-45DA-84C4-83AD7A2286E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB13503C-A26E-45DA-84C4-83AD7A2286E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB13503C-A26E-45DA-84C4-83AD7A2286E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906593A7-EA6F-4578-A81B-F984881E68C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906593A7-EA6F-4578-A81B-F984881E68C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906593A7-EA6F-4578-A81B-F984881E68C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906593A7-EA6F-4578-A81B-F984881E68C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DF0E551-AAE3-472F-BADA-6B2B79CC9F7F}
+	EndGlobalSection
+EndGlobal
