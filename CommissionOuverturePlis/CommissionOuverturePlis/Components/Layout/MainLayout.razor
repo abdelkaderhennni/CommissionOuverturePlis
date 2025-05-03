@@ -1,7 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
+    <button class="navbar-toggler" @onclick="ToggleSidebar">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <div class="sidebar-overlay @(sidebarCollapsed ? "" : "show")" @onclick="ToggleSidebar"></div>
+
+    <div class="sidebar @(sidebarCollapsed ? "" : "show")">
         <NavMenu />
     </div>
 
@@ -21,3 +29,12 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+@code {
+    private bool sidebarCollapsed = true;
+
+    private void ToggleSidebar()
+    {
+        sidebarCollapsed = !sidebarCollapsed;
+    }
+}

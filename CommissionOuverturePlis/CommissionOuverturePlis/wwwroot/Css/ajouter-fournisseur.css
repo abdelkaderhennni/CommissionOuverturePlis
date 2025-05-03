@@ -1,0 +1,132 @@
+﻿
+.form-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #143565;
+}
+
+.step-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.step-line {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+.line {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #4aa3b2;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+    .circle.active {
+        background-color: #2d8492;
+    }
+
+.step-label-left, .step-label-right {
+    font-size: 14px;
+    color: #333;
+    width: 120px;
+    text-align: center;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.input-field {
+    height: 45px;
+    padding: 10px 15px;
+    border: 2px solid #143565;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease;
+}
+
+    .input-field:focus {
+        border-color: #2d8492;
+        box-shadow: 0 0 5px rgba(77, 160, 182, 0.5);
+    }
+
+.next-button, .prev-button, .save-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 160px;
+}
+
+.next-button {
+    background-color: #143565;
+    color: white;
+    align-self: center;
+}
+
+    .next-button:hover {
+        background-color: #0f2d4c;
+    }
+
+.prev-button {
+    background-color: #e53935;
+    color: white;
+}
+
+    .prev-button:hover {
+        background-color: #c62828;
+    }
+
+.save-button {
+    background-color: #43a047;
+    color: white;
+}
+
+    .save-button:hover {
+        background-color: #2e7d32;
+    }
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle.inactive {
+    background-color: #b5d7de;
+}

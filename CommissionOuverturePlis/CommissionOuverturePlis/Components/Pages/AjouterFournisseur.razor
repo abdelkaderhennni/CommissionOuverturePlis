@@ -1,0 +1,78 @@
+﻿@page "/"
+<link href="css/ajouter-fournisseur.css" rel="stylesheet" />
+@using System.ComponentModel.DataAnnotations
+@rendermode InteractiveServer
+
+<PageTitle>Ajouter Fournisseur</PageTitle>
+<div class="form-container">
+    <h1 class="form-title">Ajouter nouveau fournisseur</h1>
+    <div class="step-bar">
+        <div class="step-label-left">Informations de contact</div>
+        <div class="step-line">
+            <div class="circle @(step == 1 ? "active" : "inactive")">1</div>
+            <div class="line"></div>
+            <div class="circle @(step == 2 ? "active" : "inactive")">2</div>
+        </div>
+        <div class="step-label-right">Détails bancaires</div>
+    </div>
+
+    <EditForm Model="fournisseur" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        @if (step == 1)
+        {
+            <div class="form-fields">
+                <InputText class="input-field" @bind-Value="fournisseur.Nom" placeholder="Nom ou raison sociale" />
+                <InputText class="input-field" @bind-Value="fournisseur.NatureJuridique" placeholder="Nature juridique" />
+                <InputText class="input-field" @bind-Value="fournisseur.Adresse" placeholder="Adresse" />
+                <InputText class="input-field" @bind-Value="fournisseur.Telephone" placeholder="Numéro de téléphone" />
+                <InputText class="input-field" @bind-Value="fournisseur.Email" placeholder="Adresse mail" />
+                <button type="button" class="next-button" @onclick="GoToStepTwo">Suivante</button>
+            </div>
+        }
+        else if (step == 2)
+        {
+            <div class="form-fields">
+                <InputText class="input-field" @bind-Value="fournisseur.RegistreCommerce" placeholder="RC" />
+                <InputText class="input-field" @bind-Value="fournisseur.NIF" placeholder="NIF" />
+                <InputText class="input-field" @bind-Value="fournisseur.NIS" placeholder="NIS" />
+                <InputText class="input-field" @bind-Value="fournisseur.ArticleImposition" placeholder="AI" />
+                <InputText class="input-field" @bind-Value="fournisseur.RIB" placeholder="RIB" />
+                <InputText class="input-field" @bind-Value="fournisseur.Agence" placeholder="Agence bancaire" />
+
+                <div class="button-group">
+                    <button type="button" class="prev-button" @onclick="GoToStepOne">Précédent</button>
+                    <button type="submit" class="save-button">Sauvegarder</button>
+                </div>
+            </div>
+        }
+    </EditForm>
+</div>
+
+@code {
+
+@using CommissionOuverturePlis.Classes
+
+private int step = 1;
+
+    private FournisseurModel fournisseur = new();
+
+    private void GoToStepTwo()
+    {
+        step = 2;
+    }
+
+    private void GoToStepOne()
+    {
+        step = 1;
+    }
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("Fournisseur sauvegardé !");
+
+    }
+
+   
+}
