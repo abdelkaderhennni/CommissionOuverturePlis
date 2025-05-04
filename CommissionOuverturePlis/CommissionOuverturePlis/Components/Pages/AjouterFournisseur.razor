@@ -23,29 +23,52 @@
         @if (step == 1)
         {
             <div class="form-fields">
-                <InputText class="input-field" @bind-Value="fournisseur.Nom" placeholder="Nom ou raison sociale" />
-                <InputText class="input-field" @bind-Value="fournisseur.NatureJuridique" placeholder="Nature juridique" />
-                <InputText class="input-field" @bind-Value="fournisseur.Adresse" placeholder="Adresse" />
-                <InputText class="input-field" @bind-Value="fournisseur.Telephone" placeholder="Numéro de téléphone" />
-                <InputText class="input-field" @bind-Value="fournisseur.Email" placeholder="Adresse mail" />
+                <label for="Nom">Nom ou raison sociale</label>
+                <InputText id="Nom" class="input-field" @bind-Value="fournisseur.Nom" />
+
+                <label for="NatureJuridique">Nature juridique</label>
+                <InputText id="NatureJuridique" class="input-field" @bind-Value="fournisseur.NatureJuridique" />
+
+                <label for="Adresse">Adresse</label>
+                <InputText id="Adresse" class="input-field" @bind-Value="fournisseur.Adresse" />
+
+                <label for="Telephone">Numéro de téléphone</label>
+                <InputText id="Telephone" class="input-field" @bind-Value="fournisseur.Telephone" />
+
+                <label for="Email">Adresse mail</label>
+                <InputText id="Email" class="input-field" @bind-Value="fournisseur.Email" />
+
                 <button type="button" class="next-button" @onclick="GoToStepTwo">Suivante</button>
             </div>
+
         }
         else if (step == 2)
         {
             <div class="form-fields">
-                <InputText class="input-field" @bind-Value="fournisseur.RegistreCommerce" placeholder="RC" />
-                <InputText class="input-field" @bind-Value="fournisseur.NIF" placeholder="NIF" />
-                <InputText class="input-field" @bind-Value="fournisseur.NIS" placeholder="NIS" />
-                <InputText class="input-field" @bind-Value="fournisseur.ArticleImposition" placeholder="AI" />
-                <InputText class="input-field" @bind-Value="fournisseur.RIB" placeholder="RIB" />
-                <InputText class="input-field" @bind-Value="fournisseur.Agence" placeholder="Agence bancaire" />
+                <label for="RC">RC</label>
+                <InputText id="RC" class="input-field" @bind-Value="fournisseur.RegistreCommerce" />
+
+                <label for="NIF">NIF</label>
+                <InputText id="NIF" class="input-field" @bind-Value="fournisseur.NIF" />
+
+                <label for="NIS">NIS</label>
+                <InputText id="NIS" class="input-field" @bind-Value="fournisseur.NIS" />
+
+                <label for="AI">AI</label>
+                <InputText id="AI" class="input-field" @bind-Value="fournisseur.ArticleImposition" />
+
+                <label for="RIB">RIB</label>
+                <InputText id="RIB" class="input-field" @bind-Value="fournisseur.RIB" />
+
+                <label for="Agence">Agence bancaire</label>
+                <InputText id="Agence" class="input-field" @bind-Value="fournisseur.Agence" />
 
                 <div class="button-group">
                     <button type="button" class="prev-button" @onclick="GoToStepOne">Précédent</button>
                     <button type="submit" class="save-button">Sauvegarder</button>
                 </div>
             </div>
+
         }
     </EditForm>
 </div>

@@ -1,0 +1,159 @@
+﻿body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F5F7FA;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content {
+    margin-left: 10px;
+    padding: 30px;
+    flex-grow: 1;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+/* Filtres modernes */
+.filter {
+    background-color: transparent;
+    border: 2px solid #093B63;
+    color: #093B63;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+    .filter:hover {
+        background-color: #003366;
+        color: white;
+    }
+
+.search {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    flex-grow: 1;
+}
+
+.add-btn {
+    background-color: #2E7713;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .add-btn:hover {
+        background-color: #1e874b;
+    }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+    .card h3 {
+        margin-top: 0;
+    }
+
+.details {
+    background-color: transparent;
+    border: 2px solid #003366;
+    color: #003366;
+    padding: 4px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    width: 140px;
+    display: inline-block;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+    .details:hover {
+        background-color: #003366;
+        color: white;
+    }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters {
+        justify-content: space-between;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

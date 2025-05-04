@@ -20,7 +20,7 @@
     margin-bottom: 40px;
     position: relative;
 }
-
+ 
 .step-line {
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@
 .form-fields {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     padding: 0 50px;
 }
 
@@ -129,4 +129,9 @@
 
 .circle.inactive {
     background-color: #b5d7de;
+}
+
+label {
+    display: block;
+/*    font-weight: bold;*/
 }

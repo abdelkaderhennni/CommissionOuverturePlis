@@ -1,0 +1,156 @@
+﻿@page "/SessionOuverture"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Session d’Ouverture</h3>
+
+<EditForm Model="@session" OnValidSubmit="@EnregistrerSession">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="dateHeure">Date et Heure</label>
+            <InputDate id="dateHeure" class="input-field" @bind-Value="session.DateHeure" />
+        </div>
+
+        <div class="form-group">
+            <label>Membres présents</label>
+            <InputText class="input-field" @bind-Value="session.MembresPresents" placeholder="Nom-prenom.." />
+        </div>
+
+        <div class="form-group">
+            <label>Soumissionnaires présents</label>
+            <InputText class="input-field" @bind-Value="session.SoumissionnairesPresents" placeholder="Soumissionnaires présents" />
+        </div>
+
+        <h5 style="margin-left: 50px; color: #143565;">Décision sur les offres</h5>
+        <div class="decision-row">
+            <InputText class="input-field" @bind-Value="session.DecisionEntreprise" placeholder="Entreprise" />
+            <InputSelect class="input-field" @bind-Value="session.DecisionStatut">
+                <option value="">-- Sélectionner --</option>
+                <option value="Acceptée">Acceptée</option>
+                <option value="Sous réserve">Sous réserve</option>
+                <option value="Rejetée">Rejetée</option>
+            </InputSelect>
+            <InputText class="input-field" @bind-Value="session.DecisionMotif" placeholder="Motif" />
+        </div>
+
+        <button type="submit" class="next-button">Enregistrer</button>
+    </div>
+</EditForm>
+
+@code {
+    private SessionOuvertureModel session = new();
+
+    protected override void OnInitialized()
+    {
+        session.DateHeure = DateTime.Now;
+    }
+
+    private void EnregistrerSession()
+    {
+        Console.WriteLine($"Session enregistrée à : {session.DateHeure}");
+        Console.WriteLine($"Membres présents : {session.MembresPresents}");
+        Console.WriteLine($"Soumissionnaires présents : {session.SoumissionnairesPresents}");
+        Console.WriteLine($"Décision entreprise : {session.DecisionEntreprise}, Statut : {session.DecisionStatut}, Motif : {session.DecisionMotif}");
+    }
+
+    public class SessionOuvertureModel
+    {
+        [Required]
+        public DateTime DateHeure { get; set; }
+
+        public string MembresPresents { get; set; }
+
+        public string SoumissionnairesPresents { get; set; }
+
+        public string DecisionEntreprise { get; set; }
+
+        public string DecisionStatut { get; set; }
+
+        public string DecisionMotif { get; set; }
+    }
+}
+
+
+<style>
+    .form-container {
+        padding: 40px;
+        max-width: 800px;
+        margin: auto;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align: left;
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #143565;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        padding: 0 50px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .input-field {
+        height: 45px;
+        padding: 10px 15px;
+        border: 2px solid #143565;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.2s ease;
+        width: 100%;
+    }
+
+        .input-field:focus {
+            border-color: #2d8492;
+            box-shadow: 0 0 5px rgba(77, 160, 182, 0.5);
+        }
+
+    .decision-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 30px 50px;
+    }
+
+    .next-button {
+        margin-top: 30px;
+        background-color: #143565;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 200px;
+        align-self: center;
+        cursor: pointer;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .next-button:hover {
+            background-color: #0f2d4c;
+        }
+</style>
+<script>
+    window.onload = function () {
+        var currentDate = new Date();
+        var dateString = currentDate.toISOString().slice(0, 16);  
+        document.getElementById('dateHeure').value = dateString;     };
+</script>

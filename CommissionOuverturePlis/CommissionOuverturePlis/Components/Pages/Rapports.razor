@@ -1,0 +1,144 @@
+﻿@page "/rapport"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>Rapports</PageTitle>
+
+<h3>Rapports</h3>
+
+<div class="form-container">
+    <div class="rapport-card">
+        <h4>Rapport Session 1</h4>
+        <div class="rapport-buttons">
+            <button class="next-button" @onclick="VoirSession1">Voir</button>
+            <button class="gray-button" @onclick="TelechargerSession1">Télécharger</button>
+        </div>
+    </div>
+
+    <div class="rapport-card">
+        <h4>Rapport Session 2</h4>
+        <div class="rapport-buttons">
+            <button class="next-button" @onclick="VoirSession2">Voir</button>
+            <button class="gray-button" @onclick="TelechargerSession2">Télécharger</button>
+        </div>
+    </div>
+
+    <div class="generate-button-container">
+        <button class="success-button" @onclick="GenererNouveauRapport">Générer un nouveau rapport</button>
+    </div>
+</div>
+
+<style>
+    .form-container {
+        padding: 40px;
+        max-width: 800px;
+        margin: auto;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align:left ;
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #143565;
+    }
+
+    .rapport-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+        .rapport-card h4 {
+            margin-bottom: 20px;
+            color: #143565;
+        }
+
+    .rapport-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .next-button {
+        background-color: #143565;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        flex: 1;
+    }
+
+        .next-button:hover {
+            background-color: #0f2d4c;
+        }
+
+    .gray-button {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        flex: 1;
+    }
+
+        .gray-button:hover {
+            background-color: #5a6268;
+        }
+
+    .success-button {
+        background-color: #198754;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .success-button:hover {
+            background-color: #157347;
+        }
+
+    .generate-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 30px;
+    }
+</style>
+
+@code {
+    private void VoirSession1()
+    {
+        Console.WriteLine("Voir Rapport Session 1");
+    }
+
+    private void TelechargerSession1()
+    {
+        Console.WriteLine("Télécharger Rapport Session 1");
+    }
+
+    private void VoirSession2()
+    {
+        Console.WriteLine("Voir Rapport Session 2");
+    }
+
+    private void TelechargerSession2()
+    {
+        Console.WriteLine("Télécharger Rapport Session 2");
+    }
+
+    private void GenererNouveauRapport()
+    {
+        Console.WriteLine("Générer un nouveau rapport");
+    }
+}

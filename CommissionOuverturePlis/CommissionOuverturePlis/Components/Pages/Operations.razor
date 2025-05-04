@@ -1,0 +1,61 @@
+﻿@page "/operations"
+<link href="css/operations.css" rel="stylesheet" />
+
+<div class="app">
+   
+
+    <main class="content">
+        <h1>Fiches Opération</h1>
+
+        <div class="toolbar">
+            <div class="filters">
+                <button class="filter">Tous</button>
+                <button class="filter">En cours</button>
+                <button class="filter">Terminé</button>
+            </div>
+
+            <input class="search" placeholder="Rechercher...." />
+            <button class="add-btn">+ Ajouter fiche operation</button>
+        </div>
+
+        <div class="cards">
+            @foreach (var op in operations)
+            {
+                <div class="card">
+                    <h3>@op.Title</h3>
+                    <p><strong>Objet :</strong> @op.Description</p>
+                    <p><strong>Type :</strong> @op.Type</p>
+                    <p><strong>Nature :</strong> @op.Nature</p>
+                    <button class="details">Details</button>
+                </div>
+            }
+        </div>
+    </main>
+</div>
+
+@code {
+    @using CommissionOuverturePlis.Classes
+    private List<Operation> operations = new()
+    {
+        new Operation {
+            Title = "Fourniture de Matériel Informatique",
+            Description = "Acquisition de matériel informatique pour le département d’informatique",
+            Type = "Équipement",
+            Nature = "Achat"
+        },
+        new Operation {
+            Title = "Travaux de Réhabilitation d’un Amphi",
+            Description = "Réhabilitation de l’Amphithéâtre A3",
+            Type = "Travaux",
+            Nature = "Réhabilitation"
+        },
+        new Operation {
+            Title = "Prestations de Nettoyage des Locaux",
+            Description = "Nettoyage des locaux administratifs et pédagogiques",
+            Type = "Prestations",
+            Nature = "Service annuel"
+        }
+    };
+
+   
+}

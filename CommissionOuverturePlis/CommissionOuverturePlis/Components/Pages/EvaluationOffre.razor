@@ -1,0 +1,142 @@
+﻿@page "/EvaluationOffre"
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@evaluation" OnValidSubmit="@AjouterEvaluation">
+    <h3>Évaluation des Offres</h3>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="entreprise">Entreprise</label>
+            <InputText id="entreprise" class="input-field" @bind-Value="evaluation.Entreprise" placeholder="Entrer le nom de l'entreprise" />
+        </div>
+
+        <div class="form-group">
+            <label for="eligibilite">Éligibilité</label>
+            <InputSelect id="eligibilite" class="input-field" @bind-Value="evaluation.Eligibilite">
+                <option value="">-- Sélectionner --</option>
+                <option>OUI</option>
+                <option>NON</option>
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="motif">Motif</label>
+            <InputText id="motif" class="input-field" @bind-Value="evaluation.Motif" placeholder="Motif" />
+        </div>
+
+        <div class="note-grid">
+            <InputNumber class="input-field" @bind-Value="evaluation.NoteTechnique" placeholder="Note technique*" />
+            <InputNumber class="input-field" @bind-Value="evaluation.NoteEchantillon" placeholder="Note échantillon*" />
+            <InputNumber class="input-field" @bind-Value="evaluation.NoteFinanciere" placeholder="Note financière*" />
+        </div>
+
+        <button type="submit" class="next-button">Ajouter l’évaluation</button>
+    </div>
+</EditForm>
+
+@code {
+    private EvaluationModel evaluation = new();
+
+    private void AjouterEvaluation()
+    {
+        // Logique pour sauvegarder l’évaluation
+        Console.WriteLine($"Entreprise : {evaluation.Entreprise}, Note technique : {evaluation.NoteTechnique}");
+    }
+
+    public class EvaluationModel
+    {
+        [Required]
+        public string Entreprise { get; set; }
+
+        [Required]
+        public string Eligibilite { get; set; }
+
+        public string Motif { get; set; }
+
+        [Range(0, 100)]
+        public int? NoteTechnique { get; set; }
+
+        [Range(0, 100)]
+        public int? NoteEchantillon { get; set; }
+
+        [Range(0, 100)]
+        public int? NoteFinanciere { get; set; }
+    }
+}
+
+
+<style>
+    .form-container {
+        padding: 40px;
+        max-width: 800px;
+        margin: auto;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align: left;
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #143565;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        padding: 0 50px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .input-field {
+        height: 45px;
+        padding: 10px 15px;
+        border: 2px solid #143565;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.2s ease;
+        width: 100%;
+    }
+
+        .input-field:focus {
+            border-color: #2d8492;
+            box-shadow: 0 0 5px rgba(77, 160, 182, 0.5);
+        }
+
+    .note-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 30px 50px;
+    }
+
+    .next-button {
+        margin-top: 30px;
+        background-color: #143565;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 200px;
+        align-self: center;
+        cursor: pointer;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .next-button:hover {
+            background-color: #0f2d4c;
+        }
+</style>
