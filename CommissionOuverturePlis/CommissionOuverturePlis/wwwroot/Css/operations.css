@@ -86,7 +86,7 @@ h3 {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* فقط 3 أعمدة */
     gap: 20px;
 }
 
@@ -94,31 +94,38 @@ h3 {
     background-color: white;
     border-radius: 8px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
+
 
     .card h3 {
         margin-top: 0;
     }
 
 .details {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     background-color: transparent;
     border: 2px solid #003366;
     color: #003366;
-    padding: 4px 10px;
+    padding: 6px 14px;
     border-radius: 15px;
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
-    width: 140px;
-    display: inline-block;
-    white-space: nowrap;
     transition: all 0.3s;
 }
+
 
     .details:hover {
         background-color: #003366;
         color: white;
     }
+
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
@@ -156,4 +163,58 @@ h3 {
     .cards {
         grid-template-columns: 1fr;
     }
+}
+
+
+
+@media (min-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search {
+    padding: 8px 12px 8px 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+    .search:focus {
+        outline: none;
+        border-color: #093B63;
+        box-shadow: 0 0 0 2px rgba(9, 59, 99, 0.1);
+    }
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #666;
+    pointer-events: none;
 }
